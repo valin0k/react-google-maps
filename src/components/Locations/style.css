@@ -1,0 +1,28 @@
+.locationsList {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.locationItem {
+    background: #1b2c3c12;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.locationItem button {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    color: tomato;
+    transition: 0.3s;
+}
+
+.locationItem button:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+}

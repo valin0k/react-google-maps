@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import StandaloneSearchBox from 'react-google-maps/lib/components/places/StandaloneSearchBox'
 import { Consumer as MapConsumer } from '../../context/locations'
 
+import './style.css'
+
 class Search extends Component {
 	handlePickPlace = handler => () => {
 		const places = this.searchBox.getPlaces().slice(-1)

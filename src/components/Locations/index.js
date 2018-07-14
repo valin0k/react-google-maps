@@ -3,6 +3,8 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import LocationItem from './Item'
 import { Consumer as MapConsumer } from '../../context/locations'
 
+import './style.css'
+
 export default () => (
   <MapConsumer>
     {({ locations, handleRemoveLocation, handleMoveLocation }) => (
