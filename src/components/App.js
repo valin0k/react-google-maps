@@ -17,6 +17,15 @@ class App extends Component {
     }))
   }
 
+  handleRemoveLocation = removedLocation => e => {
+    this.setState(({ locations }) => ({
+      locations: locations.filter(
+        location => location.lat !== removedLocation.lat && location.lng !== removedLocation.lng
+      ),
+      isNewLocation: false
+    }))
+  }
+
   handleMoveLocation = (from, to) => {
     const { locations } = this.state
     const locationsCopy = locations.slice()
@@ -32,6 +41,7 @@ class App extends Component {
     const providerData = {
       locations,
       handleAddLocation: this.handleAddLocation,
+      handleRemoveLocation: this.handleRemoveLocation,
       handleMoveLocation: this.handleMoveLocation,
     }
     return (
