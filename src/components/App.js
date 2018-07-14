@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Provider as LocationProvider } from '../context/locations'
+import Map from './Map'
 
 class App extends Component {
   state = {
@@ -13,7 +14,7 @@ class App extends Component {
     }
     return (
       <LocationProvider value={providerData}>
-        <div>Hello world</div>
+        <Map />
       </LocationProvider>
     )
   }
