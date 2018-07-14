@@ -14,11 +14,12 @@ class Map extends Component {
 		return (
       <div>
         <MapConsumer>
-          {({ locations }) => {
+          {({ locations, handleChangeCoords }) => {
             return (
               <GoogleMap
                 openItem={openItem}
                 locationItems={locations}
+                handleChangeCoords={handleChangeCoords}
                 handleOpenItem={this.handleOpenItem}
                 containerElement={<div style={{ height: `400px` }} />}
                 mapElement={<div style={{ height: `100%` }} />}

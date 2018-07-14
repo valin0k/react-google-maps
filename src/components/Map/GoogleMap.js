@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { GoogleMap, withGoogleMap, Marker, Polyline, InfoWindow } from 'react-google-maps'
 
 export default withGoogleMap(props => {
-	const { locationItems, openItem, handleOpenItem } = props
+	const { locationItems, openItem, handleChangeCoords, handleOpenItem } = props
 	return (
 		<GoogleMap
 			defaultZoom={8}
@@ -21,6 +21,8 @@ export default withGoogleMap(props => {
             onClick={handleOpenItem(position)}
             position={position}
             label={`${++i}`}
+            draggable
+            onDragEnd={handleChangeCoords(position)}
           />
           {openItem &&
           openItem.lng === position.lng &&

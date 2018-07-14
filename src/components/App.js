@@ -26,6 +26,15 @@ class App extends Component {
     }))
   }
 
+  handleChangeCoords = location => coords => {
+    const updatedLocation = { ...location, lat: coords.latLng.lat(), lng: coords.latLng.lng() }
+
+    this.setState(({ locations }) => ({
+      locations: locations.map(item => (item === location ? updatedLocation : item)),
+      isNewLocation: false
+    }))
+  }
+
   handleMoveLocation = (from, to) => {
     const { locations } = this.state
     const locationsCopy = locations.slice()
@@ -42,6 +51,7 @@ class App extends Component {
       locations,
       handleAddLocation: this.handleAddLocation,
       handleRemoveLocation: this.handleRemoveLocation,
+      handleChangeCoords: this.handleChangeCoords,
       handleMoveLocation: this.handleMoveLocation,
     }
     return (
