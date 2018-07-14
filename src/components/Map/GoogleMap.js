@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import { GoogleMap, withGoogleMap, Marker, Polyline } from 'react-google-maps'
+import { GoogleMap, withGoogleMap, Marker, Polyline, InfoWindow } from 'react-google-maps'
 
 export default withGoogleMap(props => {
-	const { locationItems, openItem } = props
+	const { locationItems, openItem, handleOpenItem } = props
 	return (
 		<GoogleMap
 			defaultZoom={8}
@@ -18,6 +18,7 @@ export default withGoogleMap(props => {
       {locationItems.map((position, i) => (
         <Fragment key={position.lng}>
           <Marker
+            onClick={handleOpenItem(position)}
             position={position}
             label={`${++i}`}
           />
@@ -27,6 +28,7 @@ export default withGoogleMap(props => {
             <InfoWindow
               options={{ pixelOffset: new google.maps.Size(0, -30) }}
               position={position}
+              onCloseClick={handleOpenItem(position)}
             >
               <div>{position.name}</div>
             </InfoWindow>
