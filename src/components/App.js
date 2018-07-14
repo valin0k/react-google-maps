@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Provider as LocationProvider } from '../context/locations'
 import Map from './Map'
 import Search from './Search'
+import Locations from './Locations'
 
 class App extends Component {
   state = {
@@ -25,6 +26,7 @@ class App extends Component {
       <LocationProvider value={providerData}>
         <Search />
         <Map />
+        <Locations />
       </LocationProvider>
     )
   }
