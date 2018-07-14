@@ -46,13 +46,14 @@ class App extends Component {
   }
 
   render() {
-    const { locations } = this.state
+    const { locations, isNewLocation } = this.state
     const providerData = {
       locations,
       handleAddLocation: this.handleAddLocation,
       handleRemoveLocation: this.handleRemoveLocation,
       handleChangeCoords: this.handleChangeCoords,
       handleMoveLocation: this.handleMoveLocation,
+      isNewLocation
     }
     return (
       <LocationProvider value={providerData}>

@@ -2,11 +2,13 @@ import React, { Fragment } from 'react'
 import { GoogleMap, withGoogleMap, Marker, Polyline, InfoWindow } from 'react-google-maps'
 
 export default withGoogleMap(props => {
-	const { locationItems, openItem, handleChangeCoords, handleOpenItem } = props
+	const { locationItems, openItem, handleChangeCoords, handleOpenItem, isNewLocation } = props
 	return (
 		<GoogleMap
 			defaultZoom={8}
-			center={{lat: 5, lng: 5}}
+      center={
+        (isNewLocation && locationItems.length && locationItems[locationItems.length - 1]) || false
+      }
 		>
       <Polyline
         path={locationItems}

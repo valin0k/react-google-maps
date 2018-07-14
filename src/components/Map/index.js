@@ -14,10 +14,11 @@ class Map extends Component {
 		return (
       <div>
         <MapConsumer>
-          {({ locations, handleChangeCoords }) => {
+          {({ locations, handleChangeCoords, isNewLocation }) => {
             return (
               <GoogleMap
                 openItem={openItem}
+                isNewLocation={isNewLocation}
                 locationItems={locations}
                 handleChangeCoords={handleChangeCoords}
                 handleOpenItem={this.handleOpenItem}
