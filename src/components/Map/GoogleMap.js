@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { GoogleMap, withGoogleMap, Marker } from 'react-google-maps'
+import { GoogleMap, withGoogleMap, Marker, Polyline } from 'react-google-maps'
 
 export default withGoogleMap(props => {
 	const { locationItems, openItem } = props
@@ -8,6 +8,13 @@ export default withGoogleMap(props => {
 			defaultZoom={8}
 			center={{lat: 5, lng: 5}}
 		>
+      <Polyline
+        path={locationItems}
+        geodesic
+        options={{
+          strokeColor: '#ff2527'
+        }}
+      />
       {locationItems.map((position, i) => (
         <Fragment key={position.lng}>
           <Marker
