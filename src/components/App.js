@@ -7,6 +7,7 @@ import Locations from './Locations'
 class App extends Component {
   state = {
     locations: [],
+    isNewLocation: true
   }
 
   handleAddLocation = newLocation => {
@@ -16,11 +17,22 @@ class App extends Component {
     }))
   }
 
+  handleMoveLocation = (from, to) => {
+    const { locations } = this.state
+    const locationsCopy = locations.slice()
+    const movedElement = locations[from]
+    locationsCopy.splice(from, 1)
+    locationsCopy.splice(to, 0, movedElement)
+
+    this.setState(() => ({ locations: locationsCopy, isNewLocation: false }))
+  }
+
   render() {
     const { locations } = this.state
     const providerData = {
       locations,
       handleAddLocation: this.handleAddLocation,
+      handleMoveLocation: this.handleMoveLocation,
     }
     return (
       <LocationProvider value={providerData}>
